@@ -33,3 +33,15 @@ python3 home_key_clicker.py
 Choose **Single window** or **Multiple windows**, click **Choose windows…**, and select the target window or windows. In multiple mode, hold Ctrl or Shift while selecting. Choose an interval and click **Start**.
 
 The app needs an X11 session because it uses `xdotool` to activate windows and send key presses. It may not work in a Wayland session.
+
+## AppImage
+
+On x86_64 Linux, build an AppImage with:
+
+```sh
+./build-appimage.sh
+```
+
+The script builds a bundled Python app and includes `xdotool` plus its non-glibc libraries. The resulting file is `build/appimage/dist/HomeKeyClicker-x86_64.AppImage`. It still requires an X11 session.
+
+GitHub Actions can build the AppImage manually from the Actions tab. Pushing a version tag such as `v1.0.0` also creates a GitHub release with the AppImage attached.
